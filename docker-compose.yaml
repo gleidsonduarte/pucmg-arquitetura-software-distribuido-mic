@@ -1,0 +1,53 @@
+version: '3.1'
+
+services:
+  pucmg-mic-api:
+    container_name: pucmg-mic-api
+    image: node:12
+    restart: always
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: bash -c "npm install && npm install -g nodemon && nodemon ./src/server.ts"
+    ports:
+      - 3010:3010
+    env_file:
+      - ./env/.env.development
+    networks:
+      - pucmg-mic-network
+    depends_on:
+      - mongo
+
+  mongo-express:
+    container_name: mongo-express
+    image: mongo-express
+    restart: always
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: password
+      ME_CONFIG_MONGODB_URL: mongodb://root:password@mongo:27017/
+    ports:
+      - 8081:8081
+    networks:
+      - pucmg-mic-network
+    depends_on:
+      - mongo
+
+  # Se alterar o nome do container do mongo
+  # o mongo express para de fazer o build.
+  mongo:
+    container_name: mongo
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password
+      MONGO_INITDB_DATABASE: pucmg
+    ports:
+      - 27017:27017
+    networks:
+      - pucmg-mic-network
+
+networks:
+  pucmg-mic-network:
+    driver: bridge
