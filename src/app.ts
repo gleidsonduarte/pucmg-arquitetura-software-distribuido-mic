@@ -3,8 +3,7 @@ import AddressRoute from './application/routes/v1/AddressRoute';
 import AssociateRoute from './application/routes/v1/AssociateRoute';
 import DocumentationRoute from './application/routes/v1/DocumentationRoute';
 import ProviderRoute from './application/routes/v1/ProviderRoute';
-
-const mongooseContext = require('./infrastructure/data/contexts/mongo');
+import Mongo from './infrastructure/data/contexts/Mongo';
 
 class App {
     public express: express.Application
@@ -20,8 +19,8 @@ class App {
         this.express.use(express.json())
     }
 
-    private database (): void {
-        mongooseContext
+    private database(): void {
+        Mongo.connect();
     }
     
     private routes(): void {

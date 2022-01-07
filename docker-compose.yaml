@@ -12,7 +12,7 @@ services:
     ports:
       - 3010:3010
     env_file:
-      - ./env/.env.development
+      - .env
     networks:
       - pucmg-mic-network
     depends_on:
