@@ -1,4 +1,4 @@
-import { Address } from './Address';
+import { Address } from './Address/Address';
 import { Contact } from './Contact';
 import { EducationEnum } from '../enums/EducationEnum';
 import { GenderEnum } from '../enums/GenderEnum';

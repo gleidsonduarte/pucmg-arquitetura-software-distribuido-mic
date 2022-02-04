@@ -1,4 +1,4 @@
-import { Address } from "../../../domain/entities/Address";
+import { AddressBr } from "../../../domain/entities/Address/AddressBr";
 
 const axios = require('axios');
 
@@ -7,13 +7,13 @@ class ViaCEPExternalAPI {
         return await axios.get(`https://viacep.com.br/ws/${postalCode}/json`)
             .then((response: any) => {
                 if (response.data.erro) {
-                    return "This address doesn't exist!";
+                    throw new Error;
                 }
 
-                return new Address(response.data);
+                return new AddressBr(response.data);
             })
             .catch((error: any) => {
-                return 'This address is invalid!';
+                throw new Error('This address is invalid!');
             });
     }
 }
