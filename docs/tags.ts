@@ -1,6 +1,10 @@
 module.exports = {
   tags: [
     {
+      name: "Health Check",
+      description: "Agrupamento de rotas para identificar as condições e o status da API"
+    },
+    {
       name: "Endereço",
       description: "Agrupamento de rotas para tratativas sobre endereços"
     },

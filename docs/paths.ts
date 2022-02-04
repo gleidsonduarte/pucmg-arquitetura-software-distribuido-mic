@@ -1,3 +1,4 @@
+const getHealthCheck = require('./health-check/getHealthCheck');
 const addressGetPostalCode = require('./address/getPostalCode');
 const getAllAssociate = require('./associate/getAll');
 const getAssociateById = require('./associate/getAssociateById');
@@ -12,6 +13,9 @@ const deleteProvider = require('./provider/deleteProvider');
 
 module.exports = {
   paths: {
+    '/v1/health-check': {
+      ...getHealthCheck
+    },
     '/v1/address/postal-code/{postalCode}': {
       ...addressGetPostalCode
     },

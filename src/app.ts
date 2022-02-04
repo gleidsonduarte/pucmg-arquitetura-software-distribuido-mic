@@ -2,6 +2,7 @@ import express from 'express';
 import AddressRoute from './application/routes/v1/AddressRoute';
 import AssociateRoute from './application/routes/v1/AssociateRoute';
 import DocumentationRoute from './application/routes/v1/DocumentationRoute';
+import HealthCheckRoute from './application/routes/v1/HealthCheckRoute';
 import ProviderRoute from './application/routes/v1/ProviderRoute';
 import Mongo from './infrastructure/data/contexts/Mongo';
 
@@ -24,6 +25,7 @@ class App {
     }
     
     private routes(): void {
+        this.express.use(HealthCheckRoute);
         this.express.use(DocumentationRoute);
         this.express.use(AddressRoute)
         this.express.use(AssociateRoute)
