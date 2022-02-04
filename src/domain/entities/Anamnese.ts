@@ -12,5 +12,5 @@ export class Anamnese implements AnamneseInterface {
         this.bloodGroup = anamnese.bloodGroup;
         this.chronicConditions = anamnese.chronicConditions;
         this.allergies = anamnese.allergies;
-     }
+    }
 }

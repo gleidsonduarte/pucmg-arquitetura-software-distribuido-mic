@@ -10,6 +10,10 @@ class Mongo {
     public close(): void {
         mongoose.connection.close();
     }
+
+    public connectionStatus() {
+        return mongoose.connection.readyState;
+    }
 }
 
 export default new Mongo();
