@@ -3,12 +3,22 @@ export default {
   collectCoverage: true,
   coverageDirectory: "coverage",
   coverageProvider: "v8",
+  collectCoverageFrom: [
+    "src/**/*.ts"
+  ],
+  "coveragePathIgnorePatterns": [
+    "src/app.ts",
+    "src/server.ts",
+    "src/application/routes",
+    "src/domain/interfaces",
+    "src/service/validators"
+  ],
   coverageReporters: [
     "html"
   ],
   preset: "ts-jest",
   setupFiles: [
-    'dotenv/config'
+    "dotenv/config"
   ],
   testEnvironment: "node",
   testMatch: [

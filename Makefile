@@ -13,3 +13,6 @@ down: docker-compose.yaml
 
 ps:
 	docker-compose ps
+
+test:
+	docker exec -it pucmg-mic-api npm run test
