@@ -6,6 +6,12 @@ import HealthCheckRoute from './application/routes/v1/HealthCheckRoute';
 import ProviderRoute from './application/routes/v1/ProviderRoute';
 import Mongo from './infrastructure/data/contexts/Mongo';
 
+const cors = require('cors');
+const corsOptions = {
+    origin: '*',
+    methods: 'GET, POST, PUT, DELETE'
+}
+
 class App {
     public express: express.Application
 
@@ -18,6 +24,7 @@ class App {
 
     private middlewares(): void {
         this.express.use(express.json())
+        this.express.use(cors(corsOptions))
     }
 
     private database(): void {
