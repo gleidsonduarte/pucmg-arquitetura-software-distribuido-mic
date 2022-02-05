@@ -16,28 +16,28 @@ class App {
     public express: express.Application
 
     constructor() {
-        this.express = express()
-        this.middlewares()
-        this.database()
-        this.routes()
+        this.express = express();
+        this.middlewares();
+        this.database();
+        this.routes();
     }
 
     private middlewares(): void {
-        this.express.use(express.json())
-        this.express.use(cors(corsOptions))
+        this.express.use(express.json());
+        this.express.use(cors(corsOptions));
     }
 
     private database(): void {
         Mongo.connect();
     }
-    
+
     private routes(): void {
         this.express.use(HealthCheckRoute);
         this.express.use(DocumentationRoute);
-        this.express.use(AddressRoute)
-        this.express.use(AssociateRoute)
-        this.express.use(ProviderRoute)
+        this.express.use(AddressRoute);
+        this.express.use(AssociateRoute);
+        this.express.use(ProviderRoute);
     }
 }
 
-export default new App().express
+export default new App().express;

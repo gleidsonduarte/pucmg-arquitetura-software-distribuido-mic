@@ -8,8 +8,10 @@ class AddressController {
             const result = await AddressService.getAddresByPostalCode(postalCode);
 
             response.status(200).json({ data : result });
-        } catch (error: any) {
-            response.status(400).json({ error : error.message });
+        } catch (error) {
+            if (error instanceof Error) {
+                response.status(400).json({ error: error.message });
+            }
         }
     }
 }

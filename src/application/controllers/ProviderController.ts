@@ -39,8 +39,10 @@ class ProviderController {
             const result = await ProviderService.saveProvider(request.body);
 
             response.status(200).json({ data : result });
-        } catch (error: any) {
-            response.status(400).json({ error: error.message });
+        } catch (error) {
+            if (error instanceof Error) {
+                response.status(400).json({ error: error.message });
+            }
         }
     }
 
@@ -49,8 +51,10 @@ class ProviderController {
             const result = await ProviderService.updateProvider(request.body);
 
             response.status(200).json({ data : result });
-        } catch (error: any) {
-            response.status(400).json({ error: error.message });
+        } catch (error) {
+            if (error instanceof Error) {
+                response.status(400).json({ error: error.message });
+            }
         }
     }
 
@@ -60,8 +64,10 @@ class ProviderController {
             const result = await ProviderService.deleteProviderById(id);
 
             response.status(200).json({ data : result });
-        } catch (error: any) {
-            response.status(400).json({ error: error.message });
+        } catch (error) {
+            if (error instanceof Error) {
+                response.status(400).json({ error: error.message });
+            }
         }
     }
 }

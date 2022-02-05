@@ -2,7 +2,7 @@
   "name": "pucmg-arquitetura-software-distribuido-mic",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.ts",
   "scripts": {
     "test": "jest"
   },
@@ -11,8 +11,8 @@
     "url": "git+https://github.com/gleidsonduarte/pucmg-arquitetura-software-distribuido-mic.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Gleidson Teixeira Duarte",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/gleidsonduarte/pucmg-arquitetura-software-distribuido-mic/issues"
   },

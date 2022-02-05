@@ -4,8 +4,8 @@
     "module": "commonjs",
     "noEmitOnError": false,
     "sourceMap": true,
-    "outDir": "./dist",
-    "rootDir": "./src",
+    "outDir": "dist",
+    "rootDir": "src",
     "strict": true,
     "noImplicitAny": true,
     "noUnusedLocals": true,
@@ -14,8 +14,12 @@
     "esModuleInterop": true,
     "resolveJsonModule": true
   },
+  "include": ["src"],
   "exclude": [
       "node_modules",
-      "**/*.spec.ts"
+      "__mocks__",
+      "__tests__",
+      "coverage",
+      "docs"
   ]
 }
