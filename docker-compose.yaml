@@ -50,4 +50,5 @@ services:
 
 networks:
   pucmg-mic-network:
+    name: pucmg-mic-network
     driver: bridge

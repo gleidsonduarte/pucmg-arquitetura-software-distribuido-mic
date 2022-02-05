@@ -6,7 +6,7 @@ nodemon:
 	@nodemon ./src/server.ts
 
 up:	docker-compose.yaml
-	docker-compose up --build
+	@docker-compose up -d --build
 
 down: docker-compose.yaml
 	@docker-compose down
