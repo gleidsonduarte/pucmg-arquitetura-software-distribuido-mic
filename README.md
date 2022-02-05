@@ -48,22 +48,22 @@ Para rodar os testes precisará ter...
 Você pode executar um comando make no seu terminal desta forma.
 > make up
 
-* **up**
+* **up**\
 Levanta todas as soluções (containers) desta solução, você pode acessá-los em...
     * **pucmg-mic-api** &#8594; localhost:3010
     * **documentação da pucmg-mic-api** &#8594; localhost:3010/api-docs
     * **mongo-express** &#8594; localhost:8081
     * **mongo** &#8594; localhost:27017
 
-* **down**
+* **down**\
 Destrói todos os containers levantados nessa solução.
 
-* **ps**
+* **ps**\
 Lista todos os containers levantados nessa solução.
 
-* **test**
-Executa todos os testes unitários e de integreção da aplicação, você pode ver a cobertura de testes em **"coverage\index.html"**.
+* **test**\
+Executa todos os testes unitários e de integreção da aplicação, você pode ver a cobertura de testes em **"coverage\index.html"**.\
 **Obs.:** Os conteiners precisam estar levantados para os testes de integração funcionarem.
 
-* **nodemon**
+* **nodemon**\
 Roda apenas o servidor contendo a aplicação.
