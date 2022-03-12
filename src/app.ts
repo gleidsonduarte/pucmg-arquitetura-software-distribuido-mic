@@ -1,6 +1,7 @@
 import express from 'express';
 import AddressRoute from './application/routes/v1/AddressRoute';
 import AssociateRoute from './application/routes/v1/AssociateRoute';
+import AuthRoute from './application/routes/v1/AuthRoute';
 import DocumentationRoute from './application/routes/v1/DocumentationRoute';
 import HealthCheckRoute from './application/routes/v1/HealthCheckRoute';
 import ProviderRoute from './application/routes/v1/ProviderRoute';
@@ -8,12 +9,12 @@ import Mongo from './infrastructure/data/contexts/Mongo';
 
 const cors = require('cors');
 const corsOptions = {
-    origin: '*',
+    origin: process.env.ALLOWED_URL,
     methods: 'GET, POST, PUT, DELETE'
-}
+};
 
 class App {
-    public express: express.Application
+    public express: express.Application;
 
     constructor() {
         this.express = express();
@@ -34,6 +35,7 @@ class App {
     private routes(): void {
         this.express.use(HealthCheckRoute);
         this.express.use(DocumentationRoute);
+        this.express.use(AuthRoute);
         this.express.use(AddressRoute);
         this.express.use(AssociateRoute);
         this.express.use(ProviderRoute);
