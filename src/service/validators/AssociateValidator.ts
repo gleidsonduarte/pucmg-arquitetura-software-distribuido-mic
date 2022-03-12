@@ -5,10 +5,6 @@ class AssociateValidator {
         if (!associate.anamnese) {
             throw new Error('Anamnese cannot be null or empty!');
         }
-
-        if (!associate.exam) {
-            throw new Error('Exam cannot be null or empty!');
-        }
     }
 }
 

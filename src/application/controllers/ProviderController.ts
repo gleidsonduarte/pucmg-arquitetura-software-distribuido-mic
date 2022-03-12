@@ -4,7 +4,7 @@ import ProviderService from '../../service/services/ProviderService';
 class ProviderController {
     public async getAllProviders(request: Request, response: Response) {
         try {
-            const result = await ProviderService.getAllProviders();
+            const result = await ProviderService.getAll();
 
             response.status(200).json({ data : result });
         } catch (error) {
@@ -15,7 +15,7 @@ class ProviderController {
     public async getProviderById(request: Request, response: Response) {
         try {
             let id = String(request.params.id);
-            const result = await ProviderService.getProviderById(id);
+            const result = await ProviderService.getById(id);
 
             response.status(200).json({ data : result });
         } catch (error) {
@@ -26,7 +26,7 @@ class ProviderController {
     public async getProviderByFirstName(request: Request, response: Response) {
         try {
             let firstName = request.params.firstName;
-            const result = await ProviderService.getProviderByFirstName(firstName);
+            const result = await ProviderService.getByFirstName(firstName);
 
             response.status(200).json({ data : result });
         } catch (error) {
@@ -36,7 +36,7 @@ class ProviderController {
 
     public async saveProvider(request: Request, response: Response) {
         try {
-            const result = await ProviderService.saveProvider(request.body);
+            const result = await ProviderService.save(request.body);
 
             response.status(200).json({ data : result });
         } catch (error) {
@@ -48,7 +48,7 @@ class ProviderController {
 
     public async updateProviderById(request: Request, response: Response) {
         try {
-            const result = await ProviderService.updateProvider(request.body);
+            const result = await ProviderService.update(request.body);
 
             response.status(200).json({ data : result });
         } catch (error) {
@@ -61,7 +61,7 @@ class ProviderController {
     public async deleteProvider(request: Request, response: Response) {
         try {
             let id = String(request.body.id);
-            const result = await ProviderService.deleteProviderById(id);
+            const result = await ProviderService.deleteById(id);
 
             response.status(200).json({ data : result });
         } catch (error) {

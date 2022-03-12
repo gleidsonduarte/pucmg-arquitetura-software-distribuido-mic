@@ -11,7 +11,7 @@ export abstract class Person implements PersonInterface {
     public readonly firstName: string;
     public readonly lastName: string;
     public readonly cpf: number;
-    public readonly birthDate: Date;
+    public readonly birthDate: string;
     public readonly gender: GenderEnum;
     public readonly maritalStatus: MaritalStatusEnum;
     public readonly education: EducationEnum;
@@ -25,10 +25,10 @@ export abstract class Person implements PersonInterface {
         this.firstName = person.firstName;
         this.lastName = person.lastName;
         this.cpf = person.cpf;
-        this.birthDate = person.birthDate;
-        this.gender = (<any>GenderEnum)[person.gender];
-        this.maritalStatus = (<any>MaritalStatusEnum)[person.maritalStatus];
-        this.education = (<any>EducationEnum)[person.education];
+        this.birthDate = new Date(person.birthDate).toLocaleDateString('en-br');
+        this.gender = (<any>GenderEnum)[person.gender.toString().toUpperCase()];
+        this.maritalStatus = (<any>MaritalStatusEnum)[person.maritalStatus.toString().toUpperCase()];
+        this.education = (<any>EducationEnum)[person.education.toString().toUpperCase()];
         this.address = new Address(person.address);
         this.contact = new Contact(person.contact);
     }

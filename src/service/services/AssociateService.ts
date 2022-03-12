@@ -1,26 +1,31 @@
 import { Associate } from "../../domain/entities/Associate";
+import { AssociateServiceInterface } from "../../domain/interfaces/services/AssociateServiceInterface";
 import AssociateRepository from "../../infrastructure/data/repositories/AssociateRepository";
 
-class AssociateService {
-    public getAllAssociates() {
-        return AssociateRepository.findAll();
+class AssociateService implements AssociateServiceInterface {
+    public async getAll() {
+        return await AssociateRepository.findAll();
     }
 
-    public getAssociateById(id: string) {
-        return AssociateRepository.findById(id);
+    public async getById(id: string) {
+        return await AssociateRepository.findById(id);
     }
 
-    public saveAssociate(associateParams: Associate) {
+    public async getByFirstName(firstName: string) {
+        return await AssociateRepository.findByFirstName(firstName);
+    }
+
+    public async save(associateParams: Associate) {
         let associate = new Associate(associateParams);
-        return AssociateRepository.save(associate);
+        return await AssociateRepository.save(associate);
     }
 
-    public updateAssociate(associateParams: Associate) {
+    public async update(associateParams: Associate) {
         let associate = new Associate(associateParams);
-        return AssociateRepository.update(associate);
+        return await AssociateRepository.update(associate);
     }
 
-    public async deleteAssociateById(id: string) {
+    public async deleteById(id: string) {
         if (!id) {
             throw new Error('ID cannot be null or empty!');
         }

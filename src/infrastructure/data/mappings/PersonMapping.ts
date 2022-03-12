@@ -14,7 +14,7 @@ export const PersonSchema = new mongoosePerson.Schema({
         require: true
     },
     birthDate: {
-        type: Date,
+        type: String,
         require: true
     },
     gender: {

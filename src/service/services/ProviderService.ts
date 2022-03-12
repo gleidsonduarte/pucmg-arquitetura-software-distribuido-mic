@@ -1,30 +1,31 @@
 import { Provider } from "../../domain/entities/Provider";
+import { ProviderServiceInterface } from "../../domain/interfaces/services/ProviderServiceInterface";
 import ProviderRepository from "../../infrastructure/data/repositories/ProviderRepository";
 
-class ProviderService {
-    public async getAllProviders() {
+class ProviderService implements ProviderServiceInterface {
+    public async getAll() {
         return await ProviderRepository.findAll();
     }
 
-    public async getProviderById(id: string) {
+    public async getById(id: string) {
         return await ProviderRepository.findById(id);
     }
 
-    public async getProviderByFirstName(firstName: string) {
+    public async getByFirstName(firstName: string) {
         return await ProviderRepository.findByFirstName(firstName);
     }
 
-    public async saveProvider(providerParams: Provider) {
+    public async save(providerParams: Provider) {
         let provider = new Provider(providerParams);
         return await ProviderRepository.save(provider);
     }
 
-    public async updateProvider(providerParams: Provider) {
+    public async update(providerParams: Provider) {
         let provider = new Provider(providerParams);
         return await ProviderRepository.update(provider);
     }
 
-    public async deleteProviderById(id: string) {
+    public async deleteById(id: string) {
         if (!id) {
             throw new Error('ID cannot be null or empty!');
         }

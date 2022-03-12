@@ -1,8 +1,8 @@
 export enum EducationEnum {
-    ensino_fundamental = 'ELEMENTARY_SCHOOL',
-    ensino_medio = 'HIGH_SCHOL',
-    ensimo_tecnico = 'ASSOCIATES_DEGREE',
-    graduacao = 'BACHELORS_DEGREE',
-    mestrado = 'MASTERS_DEGREE',
-    doutorado = 'DOCTORATE_DEGREE'
+    ELEMENTARY_SCHOOL = 'ELEMENTARY_SCHOOL',
+    HIGH_SCHOL = 'HIGH_SCHOL',
+    ASSOCIATES_DEGREE = 'ASSOCIATES_DEGREE',
+    BACHELORS_DEGREE = 'BACHELORS_DEGREE',
+    MASTERS_DEGREE = 'MASTERS_DEGREE',
+    DOCTORATE_DEGREE = 'DOCTORATE_DEGREE'
 }

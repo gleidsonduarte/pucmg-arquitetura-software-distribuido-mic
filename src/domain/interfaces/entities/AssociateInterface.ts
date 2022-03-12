@@ -4,5 +4,5 @@ import { PersonInterface } from "./PersonInterface";
 
 export interface AssociateInterface extends PersonInterface {
     anamnese: AnamneseInterface;
-    exam: ExamInterface;
+    exam: Array<ExamInterface>;
 }

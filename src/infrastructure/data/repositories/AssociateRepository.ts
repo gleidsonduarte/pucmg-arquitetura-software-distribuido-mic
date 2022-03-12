@@ -11,12 +11,18 @@ class AssociateRepository implements AssociateRepositoryInterface {
         return await associateMapping.findById(id);
     }
 
+    public async findByFirstName(firstName: string) {
+        return await associateMapping.find({
+            firstName: { $regex: `.*${firstName}.*`, $options: 'i'}
+        });
+    }
+
     public async save(associate: AssociateInterface) {
         return await associateMapping.create(associate);
     }
 
     public async update(associate: AssociateInterface) {
-        return await associateMapping.findByIdAndUpdate(associate.id, associate);
+        return await associateMapping.findByIdAndUpdate(associate.id, associate, {new: true});
     }
 
     public async deleteById(id: string) {

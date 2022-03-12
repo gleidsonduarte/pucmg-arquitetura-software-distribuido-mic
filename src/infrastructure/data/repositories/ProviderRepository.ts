@@ -8,12 +8,12 @@ class ProviderRepository implements ProviderRepositoryInterface {
     }
 
     public async findById(id: string) {
-        return await providerMapping.findById(id);;
+        return await providerMapping.findById(id);
     }
 
     public async findByFirstName(firstName: string) {
         return await providerMapping.find({
-            firstName: { $regex: `.*${firstName}.*`, $options: 'i'},
+            firstName: { $regex: `.*${firstName}.*`, $options: 'i'}
         });
     }
 
@@ -22,7 +22,7 @@ class ProviderRepository implements ProviderRepositoryInterface {
     }
 
     public async update(provider: ProviderInterface) {
-        return await providerMapping.findByIdAndUpdate(provider.id, provider);
+        return await providerMapping.findByIdAndUpdate(provider.id, provider, {new: true});
     }
 
     public async deleteById(id: string) {

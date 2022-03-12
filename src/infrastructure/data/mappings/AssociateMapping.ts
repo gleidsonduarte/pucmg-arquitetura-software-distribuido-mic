@@ -18,7 +18,7 @@ const associateSchema = extendSchemaAssociate(PersonSchema, {
             require: false
         }
     },
-    exam: {
+    exam: [{
         examDate: {
             type: Date,
             require: false
@@ -51,7 +51,7 @@ const associateSchema = extendSchemaAssociate(PersonSchema, {
             type: Number,
             require: false
         }
-    }
+    }]
 });
 
 export const associateMapping = mongooseAssociate.model('Associate', associateSchema);
