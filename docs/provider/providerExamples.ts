@@ -128,12 +128,12 @@ module.exports = {
   },
   ErrorSearchingAllProviders: {
     value: {
-      error: 'Error when searching for all providers!'
+      error: 'Erro ao pesquisar por todos os prestadores!'
     }
   },
   ErrorSearchingProviderById: {
     value: {
-      error: 'Error when searching provider for id!'
+      error: 'Erro ao pesquisar prestador pelo ID!'
     }
   }
 };

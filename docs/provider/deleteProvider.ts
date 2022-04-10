@@ -2,7 +2,7 @@ module.exports = {
   delete: {
     summary: 'Excluí os dados de um prestador de serviços',
     description: 'Essa rota é responsável por excluir todos os dados de um prestador de serviços na base de dados',
-    tags: [ 'Prestador de Serviços' ],
+    tags: [ 'Prestador de serviços' ],
     requestBody: {
       content: {
         "application/json": {

@@ -2,7 +2,7 @@ module.exports = {
   get: {
     summary: 'Consulta os dados de um prestador de serviços pelo seu ID',
     description: 'Essa rota é responsável pela consulta de todos os dados de um prestador de serviços na base de dados pelo seu ID',
-    tags: [ 'Prestador de Serviços' ],
+    tags: [ 'Prestador de serviços' ],
     parameters: [
       {
         in: 'path',

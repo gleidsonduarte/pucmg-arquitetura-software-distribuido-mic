@@ -11,27 +11,27 @@ module.exports = {
   },
   InvalidPostalCode: {
     value: {
-      error: 'Postal code with invalid numbers!'
+      error: 'Código postal com números inválidos!'
     }
   },
   NullOrEmptyPublicArea: {
     value: {
-      error: 'Public area cannot be null or empty!'
+      error: 'Endereço não pode ser nulo ou vazio!'
     }
   },
   NullOrEmptyCity: {
     value: {
-      error: 'City cannot be null or empty!'
+      error: 'Cidade não pode ser nula ou vazia!'
     }
   },
   NullOrEmptyState: {
     value: {
-      error: 'State cannot be null or empty!'
+      error: 'Estado não pode ser nulo ou vazio!'
     }
   },
   NullOrEmptyPostalCode: {
     value: {
-      error: 'Postal code cannot be null or empty!'
+      error: 'Código postal não pode ser nulo ou vazio!'
     }
   }
 };

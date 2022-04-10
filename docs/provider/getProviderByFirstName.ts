@@ -1,17 +1,16 @@
 module.exports = {
-  put: {
-    summary: 'Atualiza os dados de um prestador de serviços',
-    description: 'Essa rota é responsável por atualizar todos os dados de um prestador de serviços na base de dados',
+  get: {
+    summary: 'Consulta os dados de um prestador de serviços pelo seu primeiro nome',
+    description: 'Essa rota é responsável pela consulta de todos os dados de um prestador de serviços na base de dados pelo seu primeiro nome',
     tags: [ 'Prestador de serviços' ],
-    requestBody: {
-      content: {
-        "application/json": {
-          schema: {
-            $ref: '#/components/schemas/ProviderWithId',
-          }
-        }
+    parameters: [
+      {
+        in: 'path',
+        name: 'firstName',
+        required: true,
+        description: 'Primeiro nome do prestador de serviços'
       }
-    },
+    ],
     responses: {
       200: {
         description: 'OK',
@@ -35,11 +34,11 @@ module.exports = {
           'application/json': {
             schema: {
               type: 'object',
-              $ref: '#/components/schemas/GenericErrorExecutingNoSQLCommandForProvider'
+              $ref: '#/components/schemas/ErrorSearchingProviderById'
             },
             examples: {
-              GenericErrorExecutingNoSQLCommandForProvider: {
-                $ref: '#/components/examples/GenericErrorExecutingNoSQLCommandForProvider'
+              ErrorSearchingProviderById: {
+                $ref: '#/components/examples/ErrorSearchingProviderById'
               }
             }
           }

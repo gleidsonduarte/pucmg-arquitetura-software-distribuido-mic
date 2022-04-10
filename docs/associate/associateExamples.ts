@@ -198,17 +198,17 @@ module.exports = {
   },
   GenericErrorExecutingNoSQLCommandForAssociate: {
     value: {
-      error: 'Generic error when saving associate!'
+      error: 'Erro genérico ao salvar associado!'
     }
   },
   ErrorSearchingAllAssociates: {
     value: {
-      error: 'Error when searching for all associates!'
+      error: 'Erro ao pesquisar por todos os associados!'
     }
   },
   ErrorSearchingAssociateById: {
     value: {
-      error: 'Error when searching associate for id!'
+      error: 'Erro ao pesquisar associado pelo ID!'
     }
   }
 };
