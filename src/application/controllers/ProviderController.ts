@@ -8,7 +8,7 @@ class ProviderController {
 
             response.status(200).json({ data : result });
         } catch (error) {
-            response.status(400).json({ error: 'Error when searching for all providers!' });
+            response.status(400).json({ error: 'Erro ao pesquisar por todos os prestadores!' });
         }
     }
 
@@ -19,7 +19,7 @@ class ProviderController {
 
             response.status(200).json({ data : result });
         } catch (error) {
-            response.status(400).json({ error: 'Error when searching provider for id!' });
+            response.status(400).json({ error: 'Erro ao pesquisar prestador pelo ID!' });
         }
     }
 
@@ -30,7 +30,7 @@ class ProviderController {
 
             response.status(200).json({ data : result });
         } catch (error) {
-            response.status(400).json({ error: 'Error when searching provider for first name!' });
+            response.status(400).json({ error: 'Erro ao pesquisar prestador pelo primeiro nome!' });
         }
     }
 

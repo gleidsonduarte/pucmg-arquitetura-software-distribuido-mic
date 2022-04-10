@@ -27,7 +27,7 @@ class ProviderService implements ProviderServiceInterface {
 
     public async deleteById(id: string) {
         if (!id) {
-            throw new Error('ID cannot be null or empty!');
+            throw new Error('ID não pode ser nulo ou vazio!');
         }
 
         return await ProviderRepository.deleteById(id);

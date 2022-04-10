@@ -25,7 +25,7 @@ class EmailExternal {
 
         await transporter.sendMail(mailOptions, function(error: any, info: any) {
             if (error) {
-                throw new Error('Cannot send forgot password email!');
+                throw new Error('Não foi possível enviar e-mail de senha esquecida!');
             }
 
             return info.response;

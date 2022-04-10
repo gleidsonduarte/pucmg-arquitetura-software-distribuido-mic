@@ -24,4 +24,4 @@ module.exports = (request: any, response: any, next: any) => {
         request.userId = decoded.id;
         return next();
     });
-}
+};

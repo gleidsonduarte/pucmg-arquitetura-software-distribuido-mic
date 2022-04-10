@@ -13,7 +13,7 @@ class ViaCEPExternalAPI {
                 return new AddressBr(response.data);
             })
             .catch((error: any) => {
-                throw new Error('This address is invalid!');
+                throw new Error('Endereço inválido!');
             });
     }
 }

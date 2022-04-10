@@ -8,7 +8,7 @@ class AssociateController {
 
             response.status(200).json({ data : result });
         } catch (error) {
-            response.status(400).json({ error: 'Error when searching for all associates!' });
+            response.status(400).json({ error: 'Erro ao pesquisar por todos os associados!' });
         }
     }
 
@@ -19,7 +19,7 @@ class AssociateController {
 
             response.status(200).json({ data : result });
         } catch (error) {
-            response.status(400).json({ error: 'Error when searching associate for id!' });
+            response.status(400).json({ error: 'Erro ao pesquisar associado pelo ID!' });
         }
     }
 
@@ -30,7 +30,7 @@ class AssociateController {
 
             response.status(200).json({ data : result });
         } catch (error) {
-            response.status(400).json({ error: 'Error when searching provider for first name!' });
+            response.status(400).json({ error: 'Erro ao pesquisar associado pelo primeiro nome!' });
         }
     }
 

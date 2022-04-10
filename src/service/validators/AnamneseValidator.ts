@@ -1,15 +1,15 @@
 class AnamneseValidator {
     public validateConstructor(anamnese: any) {
         if (!anamnese.bloodGroup) {
-            throw new Error('Blood group cannot be null or empty!');
+            throw new Error('Grupo sanguíneo não pode ser nulo ou vazio!');
         }
 
         if (!anamnese.chronicConditions) {
-            throw new Error('Chronic conditions cannot be null or empty!');
+            throw new Error('Condições crônicas não podem ser nulas ou vazias!');
         }
 
         if (!anamnese.allergies) {
-            throw new Error('Allergies cannot be null or empty!');
+            throw new Error('Alergia não pode ser nula ou vazia!');
         }
     }
 }

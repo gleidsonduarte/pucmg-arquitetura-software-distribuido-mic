@@ -3,10 +3,10 @@ import AddressRepository from "../../infrastructure/data/repositories/AddressRep
 import AddressValidator from "../validators/AddressValidator";
 
 class AddressService implements AddressServiceInterface {
-    public getAddresByPostalCode(postalCode: string) {
+    public async getAddresByPostalCode(postalCode: string) {
         AddressValidator.isValidBrPostalCode(postalCode);
 
-        return AddressRepository.findAddresByPostalCode(postalCode);
+        return await AddressRepository.findAddresByPostalCode(postalCode);
     }
 }
 

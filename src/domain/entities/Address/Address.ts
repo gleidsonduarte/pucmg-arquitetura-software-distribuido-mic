@@ -5,6 +5,7 @@ export class Address extends AddressDefault {
     constructor(address: any) {
         super();
         AddressValidator.validateConstructor(address);
+
         this.publicArea = address.publicArea;
         this.city = address.city;
         this.state = address.state;

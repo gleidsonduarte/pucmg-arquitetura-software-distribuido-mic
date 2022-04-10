@@ -13,7 +13,7 @@ class AuthService {
 
         let hasUser = await UserRepository.findOneByEmail(user.email);
         if (hasUser) {
-            throw new Error('User already exists!');
+            throw new Error('Usuário já existe!');
         }
 
         let newUser: any = UserRepository.save(user);
@@ -23,14 +23,22 @@ class AuthService {
     public async authenticateUser(userParams: any) {
         const { email, password } = userParams;
 
+        if (!email) {
+            throw new Error('O e-mail não pode ser nulo ou vazio!');
+        }
+
+        if (!password) {
+            throw new Error('A senha não pode ser nula ou vazia!');
+        }
+
         let user = await UserRepository.findOneByEmail(email);
         if (!user) {
-            throw new Error('User not found!');
+            throw new Error('Usuário não encontrado!');
         }
 
         let isValidPassword = await bcrypt.compare(password, user.password);
         if (!isValidPassword) {
-            throw new Error('Invalid password!');
+            throw new Error('Senha inválida!');
         }
 
         user.password = undefined;
@@ -44,9 +52,13 @@ class AuthService {
     }
 
     public async userForgotPassword(userEmail: string) {
+        if (!userEmail) {
+            throw new Error('O e-mail não pode ser nulo ou vazio!');
+        }
+
         let user = await UserRepository.findOneByEmail(userEmail);
         if (!user) {
-            throw new Error('User not found!');
+            throw new Error('Usuário não encontrado!');
         }
 
         const newToken = crypto.randomBytes(20).toString('hex');
@@ -62,18 +74,30 @@ class AuthService {
     public async resetUserPassword(userParams: any) {
         const { email, token, password } = userParams;
 
+        if (!email) {
+            throw new Error('O e-mail não pode ser nulo ou vazio!');
+        }
+
+        if (!token) {
+            throw new Error('O token não pode ser nulo ou vazio!');
+        }
+
+        if (!password) {
+            throw new Error('A senha não pode ser nula ou vazia!');
+        }
+
         let user = await UserRepository.findOneByEmailWithPasswordReset(email);
         if (!user) {
-            throw new Error('User not found!');
+            throw new Error('Usuário não encontrado!');
         }
 
         if (token !== user.passwordResetToken) {
-            throw new Error('Token invalid!');
+            throw new Error('Token inválido!');
         }
 
         const now = new Date();
         if (now > user.passwordResetExpires) {
-            throw new Error('Token expired, generate a new one!');
+            throw new Error('Token expirado, por favor gere um novo token!');
         }
 
         user.password = password;
