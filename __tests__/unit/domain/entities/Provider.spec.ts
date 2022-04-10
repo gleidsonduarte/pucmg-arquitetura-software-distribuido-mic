@@ -24,10 +24,10 @@ describe("Create provider", () => {
             "firstName": "TestFirstName",
             "lastName": "TestLastName",
             "cpf": 11122233344,
-            "birthDate": new Date("2021/10/30"),
-            "gender": GenderEnum.outros,
-            "maritalStatus": MaritalStatusEnum.namorando,
-            "education": EducationEnum.graduacao,
+            "birthDate": "1/11/1990",
+            "gender": GenderEnum.OTHER,
+            "maritalStatus": MaritalStatusEnum.ENGAGED,
+            "education": EducationEnum.BACHELORS_DEGREE,
             "address": mockAddress,
             "contact": mockContact
         };
@@ -35,9 +35,9 @@ describe("Create provider", () => {
         const provider = new Provider(mockProvider);
 
         expect(provider).toBeInstanceOf(Provider);
-        expect(provider.birthDate).toBeInstanceOf(Date);
         expect(provider.address).toBeInstanceOf(Address);
         expect(provider.contact).toBeInstanceOf(Contact);
+        expect(typeof provider.birthDate).toBe('string');
         expect(typeof provider.firstName).toBe('string');
         expect(typeof provider.lastName).toBe('string');
         expect(typeof provider.cpf).toBe('number');
@@ -45,9 +45,9 @@ describe("Create provider", () => {
         expect(provider.lastName).toEqual(mockProvider.lastName);
         expect(provider.cpf).toEqual(mockProvider.cpf);
         expect(provider.birthDate).toEqual(mockProvider.birthDate);
-        expect(provider.gender).toEqual((<any>GenderEnum)[mockProvider.gender]);
-        expect(provider.maritalStatus).toEqual((<any>GenderEnum)[mockProvider.maritalStatus]);
-        expect(provider.education).toEqual((<any>GenderEnum)[mockProvider.education]);
+        expect(provider.gender).toEqual(mockProvider.gender);
+        expect(provider.maritalStatus).toEqual(mockProvider.maritalStatus);
+        expect(provider.education).toEqual(mockProvider.education);
         expect(provider.address).toEqual(mockProvider.address);
         expect(provider.contact).toEqual(mockProvider.contact);
     });

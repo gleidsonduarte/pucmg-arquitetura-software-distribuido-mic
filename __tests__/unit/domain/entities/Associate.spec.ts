@@ -43,24 +43,24 @@ describe("Create associate", () => {
             "firstName": "TestFirstName",
             "lastName": "TestLastName",
             "cpf": 11122233344,
-            "birthDate": new Date("2021/10/30"),
-            "gender": GenderEnum.outros,
-            "maritalStatus": MaritalStatusEnum.namorando,
-            "education": EducationEnum.graduacao,
+            "birthDate": "1/11/1990",
+            "gender": GenderEnum.OTHER,
+            "maritalStatus": MaritalStatusEnum.ENGAGED,
+            "education": EducationEnum.BACHELORS_DEGREE,
             "address": mockAddress,
             "contact": mockContact,
             "anamnese": mockAnamnese,
-            "exam": mockExam
+            "exam": [mockExam]
         };
 
         const associate = new Associate(mockAssociate);
 
         expect(associate).toBeInstanceOf(Associate);
-        expect(associate.birthDate).toBeInstanceOf(Date);
         expect(associate.address).toBeInstanceOf(Address);
         expect(associate.contact).toBeInstanceOf(Contact);
         expect(associate.anamnese).toBeInstanceOf(Anamnese);
-        expect(associate.exam).toBeInstanceOf(Exam);
+        expect(associate.exam).toBeInstanceOf(Array);
+        expect(typeof associate.birthDate).toBe('string');
         expect(typeof associate.firstName).toBe('string');
         expect(typeof associate.lastName).toBe('string');
         expect(typeof associate.cpf).toBe('number');
@@ -68,9 +68,9 @@ describe("Create associate", () => {
         expect(associate.lastName).toEqual(mockAssociate.lastName);
         expect(associate.cpf).toEqual(mockAssociate.cpf);
         expect(associate.birthDate).toEqual(mockAssociate.birthDate);
-        expect(associate.gender).toEqual((<any>GenderEnum)[mockAssociate.gender]);
-        expect(associate.maritalStatus).toEqual((<any>GenderEnum)[mockAssociate.maritalStatus]);
-        expect(associate.education).toEqual((<any>GenderEnum)[mockAssociate.education]);
+        expect(associate.gender).toEqual(mockAssociate.gender);
+        expect(associate.maritalStatus).toEqual(mockAssociate.maritalStatus);
+        expect(associate.education).toEqual(mockAssociate.education);
         expect(associate.address).toEqual(mockAssociate.address);
         expect(associate.contact).toEqual(mockAssociate.contact);
         expect(associate.anamnese).toEqual(mockAssociate.anamnese);

@@ -9,9 +9,14 @@ export default {
   "coveragePathIgnorePatterns": [
     "src/app.ts",
     "src/server.ts",
+    "src/application/controllers/AuthController.ts",
     "src/application/routes",
+    "src/application/middleware",
     "src/domain/interfaces",
-    "src/service/validators"
+    "src/infrastructure/ioc/externalsAPI/EmailExternal.ts",
+    "src/infrastructure/data/repositories/UserRepository.ts",
+    "src/service/validators",
+    "src/service/services/AuthService.ts"
   ],
   coverageReporters: [
     "html"

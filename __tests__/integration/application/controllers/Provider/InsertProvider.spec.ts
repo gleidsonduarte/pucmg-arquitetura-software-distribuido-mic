@@ -2,13 +2,25 @@ import supertest from "supertest";
 import App from "../../../../../src/app";
 import Mongo from "../../../../../src/infrastructure/data/contexts/Mongo";
 import { providerMapping } from "../../../../../src/infrastructure/data/mappings/ProviderMapping";
+import { userMapping } from "../../../../../src/infrastructure/data/mappings/UserMapping";
 
 const request = supertest(App);
+const userMock = require("../../../../../__mocks__/entities/userMock");
 const providerMock = require("../../../../../__mocks__/entities/providerMock");
+
+var token: any;
+
+beforeAll(async () => {
+	await userMapping.findOneAndRemove({ name: userMock.name });
+    const responseAuth = await request.post("/v1/auth/register").send(userMock);
+    token = responseAuth.body.data.token;
+});
 
 describe("Insert Provider", () => {
 	it("Should be save a new provider", async () => {
-		const response = await request.post("/v1/provider/save").send(providerMock);
+		const response = await request.post("/v1/provider")
+			.auth(token, { type: 'bearer' })
+			.send(providerMock);
 
 		if (response.status === 200) {
 			await providerMapping.findByIdAndDelete(response.body.data._id);
@@ -38,7 +50,9 @@ describe("Insert Provider", () => {
 	it("Shouldn't save a new provider", async () => {
 	    Mongo.close();
 
-		const response = await request.post("/v1/provider/save").send(providerMock);
+		const response = await request.post("/v1/provider")
+			.auth(token, { type: 'bearer' })
+			.send(providerMock);
 
 		expect(response.status).toBe(400);
 		expect(response.body.error).toEqual("MongoClient must be connected to perform this operation");

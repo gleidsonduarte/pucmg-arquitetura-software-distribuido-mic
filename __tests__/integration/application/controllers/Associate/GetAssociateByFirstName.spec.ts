@@ -23,9 +23,9 @@ beforeAll(async () => {
     }
 });
 
-describe("Get Associate By Id", () => {
-    it("Should get associate by id", async () => {
-        const response = await request.get(`/v1/associate/id/${associate._id}`)
+describe("Get Associate By First Name", () => {
+    it("Should get associate by first name", async () => {
+        const response = await request.get(`/v1/associate/first-name/${associate.firstName}`)
             .auth(token, { type: 'bearer' });
 
         if (associate.created) {
@@ -35,13 +35,13 @@ describe("Get Associate By Id", () => {
         expect(response.status).toBe(200);
     });
 
-    it("Shouldn't get associate by id", async () => {
+    it("Shouldn't get associate by first name", async () => {
 	    Mongo.close();
 
-		const response = await request.get(`/v1/associate/id/${associate._id}`)
+		const response = await request.get(`/v1/associate/first-name/${associate.firstName}`)
             .auth(token, { type: 'bearer' });
 
 	    expect(response.status).toBe(400);
-        expect(response.body.error).toEqual("Erro ao pesquisar associado pelo ID!");
+        expect(response.body.error).toEqual("Erro ao pesquisar associado pelo primeiro nome!");
 	});
 });

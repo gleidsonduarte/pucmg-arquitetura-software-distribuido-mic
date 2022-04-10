@@ -1,4 +1,4 @@
-import { Address } from "../../../../../../src/domain/entities/Address/Address";
+import { Address } from "../../../../../src/domain/entities/Address/Address";
 
 describe("Create address", () => {
     it("Should be able to create a new address", () => {
